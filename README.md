@@ -23,7 +23,7 @@ An AI-powered invoice data extraction application built with ASP.NET Core 10 and
 ## Quick Start (without Docker)
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/0622tcc/BillingExtractor.git
 cd BillingExtractor/src/BillingExtractor.Api
 
 # Set your Gemini API key (choose one method — see Configuration section)
