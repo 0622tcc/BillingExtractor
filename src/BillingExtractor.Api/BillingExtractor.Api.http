@@ -1,0 +1,30 @@
+@host = http://localhost:5231
+
+### Health check
+GET {{host}}/health
+
+###
+
+### Extract a valid invoice (update path to your actual PNG)
+POST {{host}}/api/invoices/extract
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="file"; filename="invoice-valid.png"
+Content-Type: image/png
+
+< /Users/cc/BillingExtractor/sample-invoices/invoice-valid.png
+--boundary--
+
+###
+
+### Get all saved invoices
+GET {{host}}/api/invoices
+Accept: application/json
+
+###
+
+### Delete an invoice by ID (replace 1 with the actual ID from GET response)
+DELETE {{host}}/api/invoices/1
+
+###

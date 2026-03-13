@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  billing-extractor:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__Default=Data Source=/app/data/invoices.db
+      - TZ=${TZ:-Asia/Kuala_Lumpur}
+    volumes:
+      - sqlite_data:/app/data
+volumes:
+  sqlite_data:
